@@ -1,0 +1,32 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+android {
+    namespace "com.junwoo.ttsmerge"
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.junwoo.ttsmerge"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            shrinkResources false
+            signingConfig null   // 🔥 릴리즈 서명 제거 (unsigned)
+        }
+        debug {
+            signingConfig signingConfigs.debug
+        }
+    }
+}
+
+dependencies {
+    implementation 'com.arthenica:ffmpeg-kit-full:5.1.LTS'
+}
